@@ -12,11 +12,22 @@ import java.util.List;
  */
 public class AssertionOrderTypeNext {
 
-    public  List<ProtocolLink<VoOneIn,VoOneO>> process(ProtocolLink<VoOneIn,VoOneO> object){
-        System.out.println("------------------------");
-        List<ProtocolLink<VoOneIn,VoOneO>> links=new LinkedList<ProtocolLink<VoOneIn, VoOneO>>();
-        links.add(new ProtocolLink<VoOneIn, VoOneO>());
-        System.out.println("------------------------");
+    public  List<ProtocolLink<VoOneO,VoOneIn>> process(ProtocolLink<VoOneIn,VoOneO> object){
+        System.out.println("haha");
+        List<ProtocolLink<VoOneO,VoOneIn>> links=new LinkedList<ProtocolLink<VoOneO,VoOneIn>>();
+        ProtocolLink <VoOneO, VoOneIn> protocolLink= new ProtocolLink<VoOneO, VoOneIn>();
+        protocolLink.setFlag(1);
+        protocolLink.setClassPath("com.demo.link.protocol.AssertionOrderTypeThree");
+        protocolLink.setNextParam(new VoOneIn());
+        protocolLink.setMethod("process");
+
+        for(int i=0;i<100;i++){
+            links.add(protocolLink);
+        }
+
+        for(int i=0;i<1;i++){
+            System.out.println("第二层处理完成");
+        }
         return  links;
     }
 

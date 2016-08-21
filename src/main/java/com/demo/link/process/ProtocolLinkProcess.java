@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ProtocolLinkProcess {
 
 
-    private ExecutorService exec = Executors.newFixedThreadPool(10);
+    private ExecutorService exec = Executors.newFixedThreadPool(20);
 
     private static Lock lock = new ReentrantLock();
 
@@ -34,7 +34,7 @@ public class ProtocolLinkProcess {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            exec.shutdown();
+            //exec.shutdownNow();
         }
     }
 
